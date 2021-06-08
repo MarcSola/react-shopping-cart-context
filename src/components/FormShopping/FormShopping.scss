@@ -91,12 +91,6 @@
   transform: translateY(10px);
 }
 
-.radio__options--input{
-  background-color: yellow;
-  min-height: 50px;
-  width: 100%;
-}
-
 .p__input--pay{
   font-size: .8em;
   font-weight: bold;
@@ -136,6 +130,55 @@
   padding: 3px;
   background-color: rgb(204, 204, 204);
 }
+
+.radio__options--input--container{
+  min-height: 50px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio__input{
+  width: 100%;
+  height: 45px;
+  border: 2px solid rgb(134, 134, 134);
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 0 1%;
+}
+
+.radio__input label{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  gap:5%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.radio__input label input{
+  background-color: burlywood;
+  color:red;
+  border: 1px solid red;
+}
+
+.img__input--paypal, .img__input--applepay{
+  width: 40%;
+  object-fit: cover;
+}
+.img__input--applepay{
+  width: 30%;
+  object-fit: cover;
+}
+
 
 
 
