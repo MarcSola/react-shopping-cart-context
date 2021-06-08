@@ -1,5 +1,10 @@
+.headerPage{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .container {
-  background-color: red;
   width: 100%;
   height: 10%;
   display: flex;
@@ -7,6 +12,17 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.btn__container{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 2%;
+}
+
 .btnForm {
   background-color: blue;
   color: white;
@@ -16,3 +32,110 @@
 .form__container {
   padding: 2% 20%;
 }
+
+.form__container--step-3{
+  padding: 2% 7%;
+}
+
+.payment-icons{
+  display:flex;
+  flex-direction:row;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 2% 0;
+}
+
+/**
+** Step 3: Credit Card
+*/
+
+.flex__creditCard--container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: 10%;
+}
+.cardName__inputs--container{
+  width: 100%;
+}
+.creditCard--container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.creditCard{
+  background-color: blue;
+  height: 70%;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5%;
+  color:white;
+}
+
+.cardName__inputs--ccv{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10%;
+  font-size: .9em;
+  justify-content:center;
+  align-items: center;
+}
+
+.ccv__credit--card{
+  height: 30px;
+  object-fit: cover;
+  transform: translateY(10px);
+}
+
+.radio__options--input{
+  background-color: yellow;
+  min-height: 50px;
+  width: 100%;
+}
+
+.p__input--pay{
+  font-size: .8em;
+  font-weight: bold;
+  padding-bottom: 1%;
+}
+.p__input--creditCards{
+  font-size: .8em;
+  padding-top: 1%;
+}
+
+.botton__texts--container{
+  font-size: .8em;
+  width: 100%;
+  min-height: 50px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.botton__texts--container div{
+ display: flex;
+ align-items: center;
+ gap:1%;
+}
+
+.p__input--padlock{
+  color: rgb(155, 155, 155);
+}
+
+.circle__padlock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(95, 95, 95);
+  border-radius: 50px;
+  padding: 3px;
+  background-color: rgb(204, 204, 204);
+}
+
+
+
