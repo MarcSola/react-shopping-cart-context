@@ -9,7 +9,7 @@ import "./FormShopping.scss";
 import InputShopping from "../InputShopping";
 import ButtonShopping from "../ButtonShopping";
 import ShoppingContext from "../../context/ShoppingContext";
-// import RadioInput from "../RadioInput";
+import CreditCard from "../CreditCard";
 
 import formSchemaShopping from "./formSchemaShopping";
 import SelectShopping from "../SelectShopping";
@@ -18,6 +18,13 @@ import Select2Shopping from "../Select2Shopping";
 function FormShopping({ ...routeProps }) {
   const [Url, setUrl] = useState(null);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [cardNameAnimation, setCardNameAnimation] = useState("");
+  const [cardCVVCodeAnimation, setCardCVVCodeAnimation] = useState("");
+  const [cardNumberAnimation, setCardNumberAnimation] = useState("");
+  const [
+    cardExpirationDateAnimation,
+    setCardExpirationDateAnimation,
+  ] = useState("");
   const {
     details,
     // phoneNumber,
@@ -74,8 +81,7 @@ function FormShopping({ ...routeProps }) {
         };
         break;
       default:
-        // eslint-disable-next-line no-console
-        console.log("initialValues -->", initialValues);
+      // console.log("initialValues -->", initialValues);
     }
     return initialValues;
   }
@@ -102,6 +108,14 @@ function FormShopping({ ...routeProps }) {
       setCheckedPoly(true);
     }
   }
+
+  // UseEffect con el que hago la animación de la tarjeta Wey
+  useEffect(() => {
+    setCardNameAnimation(formik.values.cardHolderName);
+    setCardCVVCodeAnimation(formik.values.cardCVVCode);
+    setCardNumberAnimation(formik.values.cardNumber);
+    setCardExpirationDateAnimation(formik.values.cardExpirationDate);
+  });
 
   return (
     <>
@@ -226,13 +240,19 @@ function FormShopping({ ...routeProps }) {
               className="form__container--step-3"
             >
               <p className="p__input--pay">How would you like to play?</p>
-              <div className="radio__options--input--container">
+              <div
+                className="radio__options--input--container"
+                handleChange={formik.handleChange}
+                handleBlur={formik.handleBlur}
+                id="creditChoose"
+              >
                 <div className="radio__input">
                   <label htmlFor="Credit/DebitCard">
                     <Field
                       type="radio"
-                      name="Credit/DebitCard"
+                      name="creditChoose"
                       value="Credit/DebitCard"
+                      id="radioOption1"
                     />
                     {/* <input /> */}
                     <p>Credit/ Debit Card</p>
@@ -240,7 +260,12 @@ function FormShopping({ ...routeProps }) {
                 </div>
                 <div className="radio__input">
                   <label htmlFor="Paypal">
-                    <Field type="radio" name="Paypal" value="Paypal" />
+                    <Field
+                      type="radio"
+                      name="creditChoose"
+                      value="Paypal"
+                      id="radioOption2"
+                    />
                     {/* <input /> */}
                     <img
                       className="img__input--paypal"
@@ -251,7 +276,12 @@ function FormShopping({ ...routeProps }) {
                 </div>
                 <div className="radio__input">
                   <label htmlFor="ApplePay">
-                    <Field type="radio" name="ApplePay" value="ApplePay" />
+                    <Field
+                      type="radio"
+                      name="creditChoose"
+                      value="ApplePay"
+                      id="radioOption3"
+                    />
                     {/* <input /> */}
                     <img
                       className="img__input--applepay"
@@ -412,10 +442,11 @@ function FormShopping({ ...routeProps }) {
                   <InputShopping
                     type="text"
                     label="Card name:"
-                    id="cardName"
+                    id="cardHolderName"
+                    // onChange={handleInputChange}
                     value={formik.values.cardHolderName}
                     placeholder="Your fucking name bestio &#128539;"
-                    handleChange={formik.cardHolderName}
+                    handleChange={formik.handleChange}
                     handleBlur={formik.handleBlur}
                     hasErrorMessage={formik.touched.cardHolderName}
                     errorMessage={formik.errors.cardHolderName}
@@ -435,7 +466,7 @@ function FormShopping({ ...routeProps }) {
                     <InputShopping
                       type="text"
                       label="Card expiry date:"
-                      id="expiryYear"
+                      id="cardExpirationDate"
                       value={formik.values.cardExpirationDate}
                       placeholder="mm/yy"
                       handleChange={formik.handleChange}
@@ -446,7 +477,7 @@ function FormShopping({ ...routeProps }) {
                     <InputShopping
                       type="text"
                       label="cvc code:"
-                      id="cvc"
+                      id="cardCVVCode"
                       value={formik.values.cardCVVCode}
                       placeholder="XXX"
                       handleChange={formik.handleChange}
@@ -461,9 +492,12 @@ function FormShopping({ ...routeProps }) {
                     />
                   </div>
                 </div>
-                <div className="creditCard--container">
-                  <div className="creditCard">Credit Card</div>
-                </div>
+                <CreditCard
+                  cardNameAnimation={cardNameAnimation}
+                  cardCVVCodeAnimation={cardCVVCodeAnimation}
+                  cardNumberAnimation={cardNumberAnimation}
+                  cardExpirationDateAnimation={cardExpirationDateAnimation}
+                />
               </div>
               <div className="botton__texts--container">
                 <div>
@@ -471,6 +505,10 @@ function FormShopping({ ...routeProps }) {
                     type="checkbox"
                     checked={checkedPoly}
                     onClick={handleCHeck}
+                    id="checkedPoly"
+                    value={checkedPoly}
+                    handleChange={formik.handleChange}
+                    handleBlur={formik.handleBlur}
                   />
                   <p>
                     I have read and I accept the booking conditions, general

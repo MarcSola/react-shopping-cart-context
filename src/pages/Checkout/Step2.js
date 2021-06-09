@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Step1.scss";
+import "./mainLayout.scss";
 
 import ShoppingLayout from "../../hoc/ShoppingLayout";
 import ProgressBar from "../../components/ProgressBar";
@@ -9,8 +9,8 @@ import FormShopping from "../../components/FormShopping";
 
 function Step2({ cartItems, handleRemove, handleChange, ...routeProps }) {
   return (
-    <div className="step1__main--container">
-      <div className="step1__main--container--form">
+    <div className="step__main--container">
+      <div className="step__main--container--form">
         <ProgressBar {...routeProps} />
         <FormShopping {...routeProps} />
       </div>

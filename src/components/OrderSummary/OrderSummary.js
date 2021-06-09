@@ -12,7 +12,7 @@ function getCartTotal(cart) {
 function OrderSummary({ cartItems, ...props }) {
   return (
     <aside {...props}>
-      <div className="row flex-column">
+      <div className="row flex-column order__container">
         <div className="col shopping__cart__header">
           <h2 className="h3 mt-2">Order Summary</h2>
           <hr className="mb-3" />

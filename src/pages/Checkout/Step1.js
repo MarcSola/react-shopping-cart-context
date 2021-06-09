@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from "react";
 
-import "./Step1.scss";
+import "./mainLayout.scss";
 import "../../components/OrderSummary/OrderSummary.scss";
 
 import ShoppingLayout from "../../hoc/ShoppingLayout";
@@ -11,8 +11,8 @@ import FormShopping from "../../components/FormShopping";
 
 function Step1({ cartItems, ...routeProps }) {
   return (
-    <div className="step1__main--container">
-      <div className="step1__main--container--form">
+    <div className="step__main--container">
+      <div className="step__main--container--form">
         <ProgressBar {...routeProps} />
         <FormShopping {...routeProps} />
       </div>
