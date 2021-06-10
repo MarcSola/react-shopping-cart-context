@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./CreditCard.scss";
 
 function CreditCard({
-  cardNameAnimation = `your name  `,
+  cardNameAnimation = `your rich name  `,
   cardCVVCodeAnimation = "xxx",
   cardNumberAnimation = "xxxxxxxxxxxxxxxx",
   cardExpirationDateAnimation = "xx/xx",

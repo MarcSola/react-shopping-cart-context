@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./mainLayout.scss";
 
@@ -8,6 +8,9 @@ import OrderSummary from "../../components/OrderSummary";
 import FormShopping from "../../components/FormShopping";
 
 function Step3({ cartItems, handleRemove, handleChange, ...routeProps }) {
+  useEffect(() => {
+    console.log(cartItems);
+  });
   return (
     <div className="step__main--container">
       <div className="step__main--container--form">

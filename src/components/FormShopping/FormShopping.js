@@ -115,7 +115,7 @@ function FormShopping({ ...routeProps }) {
     setCardCVVCodeAnimation(formik.values.cardCVVCode);
     setCardNumberAnimation(formik.values.cardNumber);
     setCardExpirationDateAnimation(formik.values.cardExpirationDate);
-  });
+  }, [formik]);
 
   return (
     <>
@@ -527,12 +527,9 @@ function FormShopping({ ...routeProps }) {
                 </div>
               </div>
               <div className="btn__container">
-                <ButtonShopping type="button" className="btnForm">
-                  back
-                </ButtonShopping>
+                <ButtonShopping type="button">back</ButtonShopping>
                 <ButtonShopping
                   type="button"
-                  className="btnForm"
                   submitButton
                   // block
                   disabled={formik.isValidating || !formik.isValid}

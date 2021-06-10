@@ -11,7 +11,7 @@
 
 .creditCard {
   position: relative;
-  height: 85%;
+  height: 90%;
   width: 100%;
   border-radius: 10px;
   padding: 5%;
@@ -118,6 +118,9 @@
 	min-width: 70px;
 	padding-left: 10px;
 	height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card__footer--back{
  display: flex;
